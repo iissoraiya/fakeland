@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Summary of Order</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+</head>
+
+<style>
+    body {
+      font-family: Arial;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      width: 500px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 50px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    input, select {
+      width: 95%;
+      padding: 8px;
+      margin: 8px 0;
+    }
+
+    #terms {
+      width: 10%;
+    }
+
+    button {
+      padding: 10px;
+      width: 100%;
+      margin-top: 5px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .error {
+      color: red;
+      margin-bottom: 10px;
+      min-height: 18px;
+    }
+  </style>
+
+<style>
+    body {
+      font-family: Arial;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      width: 500px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 50px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    input, select {
+      width: 95%;
+      padding: 8px;
+      margin: 8px 0;
+    }
+
+    #terms {
+      width: 10%;
+    }
+
+    button {
+      padding: 10px;
+      width: 100%;
+      margin-top: 5px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .error {
+      color: red;
+      margin-bottom: 10px;
+      min-height: 18px;
+    }
+  </style>
+
+<body onload="onLoad()">
+  <div class="container"> 
+
+    <h2>Order Summary</h2>
+    <p>Name: <span id="nameSummary"></span></p>
+    <p>Size: <span id="sizeSummary"></span></p>
+    <p>Quantity: <span id="quantitySummary"></span></p>
+    <p>Total: Php <span id="totalSummary"></span></p>
+    <p>Pickup Method: <span id="pickupSummary"></span></p>
+    <p>Address (if delivery): <span id="addressSummary"></span></p>
+    <h3>Thank you for your order!</h3>
+
+    <button onclick="window.location.href='preorder.html'">Back to Pre-Order</button>
+  </div>
+  <script>
+    function onLoad() {
+      let name = getCookie("name");
+      let size = localStorage.getItem("size");
+      let quantity = localStorage.getItem("quantity");
+      let price = localStorage.getItem("price");
+      let pickup = localStorage.getItem("pickup");
+      let address = localStorage.getItem("address");
+
+      document.getElementById("nameSummary").innerHTML = name;
+      document.getElementById("sizeSummary").innerHTML = size;
+      document.getElementById("quantitySummary").innerHTML = quantity;
+      document.getElementById("totalSummary").innerHTML = Number(price)*Number(quantity);
+      document.getElementById("pickupSummary").innerHTML = pickup;
+      document.getElementById("addressSummary").innerHTML = address;
+    }
+  </script>
+</body>
+</html>
